@@ -69,10 +69,10 @@ function Field({
   label: string;
   value: string;
   onChange: (value: string) => void;
-  error?: string;
-  type?: string;
-  optional?: boolean;
-  textarea?: boolean;
+  error?: string | undefined;
+  type?: string | undefined;
+  optional?: boolean | undefined;
+  textarea?: boolean | undefined;
 }) {
   return (
     <div>
