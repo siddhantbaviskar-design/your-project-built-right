@@ -126,7 +126,8 @@ function Trust() {
 
 /* 03 — SERVICES */
 function Services() {
-  const [featured, ...rest] = services;
+  const featured = services[0]!;
+  const rest = services.slice(1);
   return (
     <section className="border-y border-border bg-sand py-20 lg:py-28">
       <div className="container-page">
@@ -332,7 +333,7 @@ function Process() {
                   <span className="relative -top-[7px] inline-block h-3.5 w-3.5 rounded-full border-2 border-accent bg-background" />
                 </div>
                 <p className="label-mono mt-1">{step.n}</p>
-                <LineIcon name={icons[i]} className="mt-4 h-8 w-8 text-primary" />
+                <LineIcon name={icons[i] ?? "intake"} className="mt-4 h-8 w-8 text-primary" />
                 <h3 className="mt-4 font-display text-lg font-semibold text-ink">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
               </Reveal>
@@ -354,7 +355,7 @@ function Expertise() {
   return (
     <section className="container-page py-20 lg:py-28">
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-        <Reveal ref-="" className="relative">
+        <Reveal className="relative">
           <div ref={ref} className="relative overflow-hidden rounded-2xl">
             <img
               src={scanImg}
@@ -508,7 +509,8 @@ function TeamTeaser() {
 
 /* 09 — RESOURCES */
 function Resources() {
-  const [lead, ...others] = articles;
+  const lead = articles[0]!;
+  const others = articles.slice(1);
   return (
     <section className="border-y border-border bg-sand py-20 lg:py-28">
       <div className="container-page">

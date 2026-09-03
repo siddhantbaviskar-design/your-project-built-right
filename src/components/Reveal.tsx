@@ -12,6 +12,11 @@ export function useInView<T extends HTMLElement>(threshold = 0.18) {
       setVisible(true);
       return;
     }
+    const rect = node.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.95) {
+      setVisible(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -21,7 +26,7 @@ export function useInView<T extends HTMLElement>(threshold = 0.18) {
           }
         }
       },
-      { threshold, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0, rootMargin: "0px 0px -5% 0px" },
     );
     observer.observe(node);
     return () => observer.disconnect();
