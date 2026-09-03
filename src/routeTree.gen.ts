@@ -11,13 +11,18 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FormsRouteImport } from './routes/forms'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as IntakeRouteImport } from './routes/intake'
 import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProvidersRouteImport } from './routes/providers'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ShoesRouteImport } from './routes/shoes'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -33,6 +38,16 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FormsRoute = FormsRouteImport.update({
   id: '/forms',
   path: '/forms',
@@ -43,9 +58,19 @@ const HowItWorksRoute = HowItWorksRouteImport.update({
   path: '/how-it-works',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IntakeRoute = IntakeRouteImport.update({
+  id: '/intake',
+  path: '/intake',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsRoute = LocationsRouteImport.update({
   id: '/locations',
   path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProvidersRoute = ProvidersRouteImport.update({
@@ -66,6 +91,11 @@ const ShoesRoute = ShoesRouteImport.update({
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -92,13 +122,18 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
   '/forms': typeof FormsRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/intake': typeof IntakeRoute
   '/locations': typeof LocationsRoute
+  '/privacy': typeof PrivacyRoute
   '/providers': typeof ProvidersRoute
   '/resources': typeof ResourcesRoute
   '/shoes': typeof ShoesRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -107,13 +142,18 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
   '/forms': typeof FormsRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/intake': typeof IntakeRoute
   '/locations': typeof LocationsRoute
+  '/privacy': typeof PrivacyRoute
   '/providers': typeof ProvidersRoute
   '/resources': typeof ResourcesRoute
   '/shoes': typeof ShoesRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/blog': typeof BlogIndexRoute
@@ -123,13 +163,18 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
   '/forms': typeof FormsRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/intake': typeof IntakeRoute
   '/locations': typeof LocationsRoute
+  '/privacy': typeof PrivacyRoute
   '/providers': typeof ProvidersRoute
   '/resources': typeof ResourcesRoute
   '/shoes': typeof ShoesRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -140,13 +185,18 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/accessibility'
+    | '/contact'
     | '/forms'
     | '/how-it-works'
+    | '/intake'
     | '/locations'
+    | '/privacy'
     | '/providers'
     | '/resources'
     | '/shoes'
     | '/team'
+    | '/terms'
     | '/blog/$slug'
     | '/services/$slug'
     | '/blog/'
@@ -155,13 +205,18 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/accessibility'
+    | '/contact'
     | '/forms'
     | '/how-it-works'
+    | '/intake'
     | '/locations'
+    | '/privacy'
     | '/providers'
     | '/resources'
     | '/shoes'
     | '/team'
+    | '/terms'
     | '/blog/$slug'
     | '/services/$slug'
     | '/blog'
@@ -170,13 +225,18 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/accessibility'
+    | '/contact'
     | '/forms'
     | '/how-it-works'
+    | '/intake'
     | '/locations'
+    | '/privacy'
     | '/providers'
     | '/resources'
     | '/shoes'
     | '/team'
+    | '/terms'
     | '/blog/$slug'
     | '/services/$slug'
     | '/blog/'
@@ -186,13 +246,18 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccessibilityRoute: typeof AccessibilityRoute
+  ContactRoute: typeof ContactRoute
   FormsRoute: typeof FormsRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  IntakeRoute: typeof IntakeRoute
   LocationsRoute: typeof LocationsRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProvidersRoute: typeof ProvidersRoute
   ResourcesRoute: typeof ResourcesRoute
   ShoesRoute: typeof ShoesRoute
   TeamRoute: typeof TeamRoute
+  TermsRoute: typeof TermsRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -215,6 +280,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/forms': {
       id: '/forms'
       path: '/forms'
@@ -229,11 +308,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/intake': {
+      id: '/intake'
+      path: '/intake'
+      fullPath: '/intake'
+      preLoaderRoute: typeof IntakeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations': {
       id: '/locations'
       path: '/locations'
       fullPath: '/locations'
       preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/providers': {
@@ -262,6 +355,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -298,13 +398,18 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccessibilityRoute: AccessibilityRoute,
+  ContactRoute: ContactRoute,
   FormsRoute: FormsRoute,
   HowItWorksRoute: HowItWorksRoute,
+  IntakeRoute: IntakeRoute,
   LocationsRoute: LocationsRoute,
+  PrivacyRoute: PrivacyRoute,
   ProvidersRoute: ProvidersRoute,
   ResourcesRoute: ResourcesRoute,
   ShoesRoute: ShoesRoute,
   TeamRoute: TeamRoute,
+  TermsRoute: TermsRoute,
   BlogSlugRoute: BlogSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
