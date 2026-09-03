@@ -14,8 +14,12 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as FormsRouteImport } from './routes/forms'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as ProvidersRouteImport } from './routes/providers'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as ShoesRouteImport } from './routes/shoes'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
@@ -44,14 +48,34 @@ const LocationsRoute = LocationsRouteImport.update({
   path: '/locations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProvidersRoute = ProvidersRouteImport.update({
+  id: '/providers',
+  path: '/providers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
   path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShoesRoute = ShoesRouteImport.update({
+  id: '/shoes',
+  path: '/shoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -71,9 +95,13 @@ export interface FileRoutesByFullPath {
   '/forms': typeof FormsRoute
   '/how-it-works': typeof HowItWorksRoute
   '/locations': typeof LocationsRoute
+  '/providers': typeof ProvidersRoute
   '/resources': typeof ResourcesRoute
+  '/shoes': typeof ShoesRoute
   '/team': typeof TeamRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -82,9 +110,13 @@ export interface FileRoutesByTo {
   '/forms': typeof FormsRoute
   '/how-it-works': typeof HowItWorksRoute
   '/locations': typeof LocationsRoute
+  '/providers': typeof ProvidersRoute
   '/resources': typeof ResourcesRoute
+  '/shoes': typeof ShoesRoute
   '/team': typeof TeamRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -94,9 +126,13 @@ export interface FileRoutesById {
   '/forms': typeof FormsRoute
   '/how-it-works': typeof HowItWorksRoute
   '/locations': typeof LocationsRoute
+  '/providers': typeof ProvidersRoute
   '/resources': typeof ResourcesRoute
+  '/shoes': typeof ShoesRoute
   '/team': typeof TeamRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -107,9 +143,13 @@ export interface FileRouteTypes {
     | '/forms'
     | '/how-it-works'
     | '/locations'
+    | '/providers'
     | '/resources'
+    | '/shoes'
     | '/team'
+    | '/blog/$slug'
     | '/services/$slug'
+    | '/blog/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -118,9 +158,13 @@ export interface FileRouteTypes {
     | '/forms'
     | '/how-it-works'
     | '/locations'
+    | '/providers'
     | '/resources'
+    | '/shoes'
     | '/team'
+    | '/blog/$slug'
     | '/services/$slug'
+    | '/blog'
     | '/services'
   id:
     | '__root__'
@@ -129,9 +173,13 @@ export interface FileRouteTypes {
     | '/forms'
     | '/how-it-works'
     | '/locations'
+    | '/providers'
     | '/resources'
+    | '/shoes'
     | '/team'
+    | '/blog/$slug'
     | '/services/$slug'
+    | '/blog/'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -141,9 +189,13 @@ export interface RootRouteChildren {
   FormsRoute: typeof FormsRoute
   HowItWorksRoute: typeof HowItWorksRoute
   LocationsRoute: typeof LocationsRoute
+  ProvidersRoute: typeof ProvidersRoute
   ResourcesRoute: typeof ResourcesRoute
+  ShoesRoute: typeof ShoesRoute
   TeamRoute: typeof TeamRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -184,6 +236,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/providers': {
+      id: '/providers'
+      path: '/providers'
+      fullPath: '/providers'
+      preLoaderRoute: typeof ProvidersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resources': {
       id: '/resources'
       path: '/resources'
@@ -191,11 +250,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shoes': {
+      id: '/shoes'
+      path: '/shoes'
+      fullPath: '/shoes'
+      preLoaderRoute: typeof ShoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/team': {
       id: '/team'
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -221,9 +301,13 @@ const rootRouteChildren: RootRouteChildren = {
   FormsRoute: FormsRoute,
   HowItWorksRoute: HowItWorksRoute,
   LocationsRoute: LocationsRoute,
+  ProvidersRoute: ProvidersRoute,
   ResourcesRoute: ResourcesRoute,
+  ShoesRoute: ShoesRoute,
   TeamRoute: TeamRoute,
+  BlogSlugRoute: BlogSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
